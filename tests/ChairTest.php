@@ -4,11 +4,18 @@ use App\Models\Chair;
 
 class ChairTest extends \PHPUnit\Framework\TestCase
 {
+    protected $chair;
+
+    public function setUp()
+    {
+        $this->chair = new Chair();
+    }
+
+
     public function testGetChairName()
     {
-        $chair = new Chair();
-        $chair->setName('Nada');
-        $this->assertEquals($chair->getName(), 'Nada');
+        $this->chair->setName('Nada');
+        $this->assertEquals($this->chair->getName(), 'Nada');
     }
 
     /**
@@ -16,8 +23,7 @@ class ChairTest extends \PHPUnit\Framework\TestCase
      */
     public function getChairPrice()
     {
-        $chair = new Chair();
-        $chair->setPrice(50);
-        $this->assertEquals($chair->getPrice(), 50);
+        $this->chair->setPrice(50);
+        $this->assertEquals($this->chair->getPrice(), 50);
     }
 }
